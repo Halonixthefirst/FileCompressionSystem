@@ -1,0 +1,3 @@
+D:/C++/FileCompressionSystem/cmake-build-debug/CMakeFiles/FileCompressionSystem.dir
+D:/C++/FileCompressionSystem/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/C++/FileCompressionSystem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
