@@ -32,5 +32,5 @@ int main() {
   // std::cout<<compressedFile;
 
   //save compressed file;
-  std::filesystem::create_directory("../compressed");
+  // std::filesystem::create_directory("../compressed");
 }
