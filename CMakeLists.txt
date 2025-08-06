@@ -3,4 +3,8 @@ project(FileCompressionSystem)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(FileCompressionSystem main.cpp)
+add_executable(FileCompressionSystem
+        src/main.cpp
+        src/Reader.cpp
+        src/Encoder.cpp
+)
