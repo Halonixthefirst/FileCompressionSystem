@@ -67,6 +67,12 @@ build CMakeFiles/FileCompressionSystem.dir/src/Encoder.cpp.obj: CXX_COMPILER__Fi
   OBJECT_DIR = CMakeFiles\FileCompressionSystem.dir
   OBJECT_FILE_DIR = CMakeFiles\FileCompressionSystem.dir\src
 
+build CMakeFiles/FileCompressionSystem.dir/src/Decoder.cpp.obj: CXX_COMPILER__FileCompressionSystem_unscanned_Debug D$:/C++/FileCompressionSystem/src/Decoder.cpp || cmake_object_order_depends_target_FileCompressionSystem
+  DEP_FILE = CMakeFiles\FileCompressionSystem.dir\src\Decoder.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\FileCompressionSystem.dir
+  OBJECT_FILE_DIR = CMakeFiles\FileCompressionSystem.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target FileCompressionSystem
@@ -75,7 +81,7 @@ build CMakeFiles/FileCompressionSystem.dir/src/Encoder.cpp.obj: CXX_COMPILER__Fi
 #############################################
 # Link the executable FileCompressionSystem.exe
 
-build FileCompressionSystem.exe: CXX_EXECUTABLE_LINKER__FileCompressionSystem_Debug CMakeFiles/FileCompressionSystem.dir/src/main.cpp.obj CMakeFiles/FileCompressionSystem.dir/src/Reader.cpp.obj CMakeFiles/FileCompressionSystem.dir/src/Encoder.cpp.obj
+build FileCompressionSystem.exe: CXX_EXECUTABLE_LINKER__FileCompressionSystem_Debug CMakeFiles/FileCompressionSystem.dir/src/main.cpp.obj CMakeFiles/FileCompressionSystem.dir/src/Reader.cpp.obj CMakeFiles/FileCompressionSystem.dir/src/Encoder.cpp.obj CMakeFiles/FileCompressionSystem.dir/src/Decoder.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\FileCompressionSystem.dir

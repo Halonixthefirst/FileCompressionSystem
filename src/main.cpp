@@ -14,23 +14,26 @@ int main() {
   std::string data=reader.readFile(fileName);
   auto freqMap=reader.freqMap(data);
 
-  // for (auto it:freqMap) {
-  //   std::cout<<it.first<<" "<<it.second<<std::endl;
-  // }
-
   HuffmanNode* rootNode=buildHuffmanTree(freqMap);
 
   std::unordered_map<char,std::string>codes;
-  createCode(rootNode,"",codes);
-  // for (auto it:codes) {
-  //   std::cout<<it.first<<" "<<it.second<<std::endl;
-  // }
-  // std::string compressedFile;
-  // for (char ch :data) {
-    // compressedFile+=codes[ch];
-  // }
-  // std::cout<<compressedFile;
+  createCode(rootNode,"",codes);// codes;
 
-  //save compressed file;
-  // std::filesystem::create_directory("../compressed");
+  std::string compressedBits="";
+
+  for (char ch:data) {
+    compressedBits+=codes[ch];
+  }
+  std::vector<unsigned char> bytes;//Encoded structure;
+  convertToBinary(bytes,compressedBits);
+
+  std::fstream compressedFile(fileName+".bin",std::ios::binary|std::ios::out);
+  size_t mapSize=freqMap.size();
+  compressedFile.write(reinterpret_cast<const char *>(&mapSize),sizeof(mapSize));//Store the size of the FreqMap
+  for (auto [ch,freq]:freqMap) {
+    compressedFile.write(reinterpret_cast<const char *>(&ch),(sizeof(ch)));//Store a char and its size and then its freq and size;
+    compressedFile.write(reinterpret_cast<const char *> (&freq),(sizeof(freq)));
+  }
+  compressedFile.write(reinterpret_cast<const char *>(bytes.data()),bytes.size());//reinterpret unsigned char as const char.
+  compressedFile.close();
 }
