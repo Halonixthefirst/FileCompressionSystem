@@ -88,5 +88,6 @@ int main() {
     }
     std::string originalFile=convertToText(freqMap,bitString);
     saveToFile(originalFile, "../"+p1.stem().string()+".txt");
+    std::cout<<"File Saved Successfully\n";
   }
 }
