@@ -11,6 +11,7 @@ class HuffmanNode{
   public:
     char ch;
     int freq;
+    char minChar;
     HuffmanNode* left;
     HuffmanNode* right;
     HuffmanNode(char ch,int freq);//Single Node Constructor
@@ -21,6 +22,6 @@ void createCode(HuffmanNode* root,std::string,std::unordered_map<char,std::strin
 struct comp{
   bool operator()(HuffmanNode*a , HuffmanNode* b);
 };
-void convertToBinary(std::vector<unsigned char> &bytes,std::string compressedBits);
+int convertToBinary(std::vector<unsigned char> &bytes,std::string compressedBits);
 
 #endif

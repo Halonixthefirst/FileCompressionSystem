@@ -1,4 +1,13 @@
-#ifndef DECODER_H
-#define DECODER_H
+#ifndef DECODER
+#define DECODER
 
-#endif //DECODER_H
+#include<string>
+#include<unordered_map>
+
+std::string convertToText(std::unordered_map<char,int> &freqMap,std::string &originalFile);
+void saveToFile(const std::string &data, const std::string &filename);
+
+
+
+
+#endif

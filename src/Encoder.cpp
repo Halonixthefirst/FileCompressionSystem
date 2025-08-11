@@ -5,12 +5,14 @@ HuffmanNode::HuffmanNode(char ch,int freq){
   this->freq=freq;
   this->left=nullptr;
   this->right=nullptr;
+  this->minChar = ch;
 }
 HuffmanNode::HuffmanNode(int freq,HuffmanNode* left,HuffmanNode*right){
   this->ch='\0';
   this->freq=freq;
   this->left=left;
   this->right=right;
+  this->minChar = std::min(left->minChar, right->minChar);
 }
 
 HuffmanNode* buildHuffmanTree(const std::unordered_map<char,int>& freqMap) {
@@ -37,9 +39,14 @@ void createCode(HuffmanNode* root,std::string code,std::unordered_map<char,std::
   createCode(root->left,code+'0',codes);
   createCode(root->right,code+'1',codes);
 }
-void convertToBinary(std::vector<unsigned char> &bytes,std::string compressedBits) {
+int convertToBinary(std::vector<unsigned char> &bytes,std::string compressedBits) {
   unsigned char currentByte=0;
   int bitCount=0;//count each bit;
+  int paddingBits = 0;
+  while (compressedBits.size() % 8 != 0) {//If total bits are not divisible by 8
+    compressedBits += '0';//Add padding
+    paddingBits++;//count number of padding bits
+  }
   for (char bit: compressedBits) {
     currentByte=currentByte<<1;//Make space for next bit default space is zero;
     if (bit=='1') {
@@ -52,12 +59,11 @@ void convertToBinary(std::vector<unsigned char> &bytes,std::string compressedBit
       currentByte=0;
     }
   }
-    if (bitCount>0) {
-      currentByte<<=8-(bitCount);
-      bytes.push_back(currentByte);
-  }
+
+  return paddingBits;
 }
 
 bool comp::operator()(HuffmanNode *a, HuffmanNode *b) {
-  return a->freq>b->freq;
+  if (a->freq!=b->freq) return a->freq>b->freq;
+  return a->minChar > b->minChar;;
 }
