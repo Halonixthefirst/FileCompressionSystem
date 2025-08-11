@@ -34,7 +34,7 @@ int main() {
     std::vector<unsigned char> bytes;//Encoded structure;
     int paddingBits=convertToBinary(bytes,compressedBits);
 
-    std::string outFile="../"+p1.stem().string()+".bin";
+    std::string outFile="../Compressed/"+p1.stem().string()+".bin";
 
     std::fstream compressedFile(outFile,std::ios::binary|std::ios::out);
     if (!compressedFile.is_open()) {
@@ -87,7 +87,7 @@ int main() {
       bitString.erase(bitString.end()-paddingBits,bitString.end());//remove the extra padding bits from the string;
     }
     std::string originalFile=convertToText(freqMap,bitString);
-    saveToFile(originalFile, "../"+p1.stem().string()+".txt");
-    std::cout<<"File Saved Successfully\n";
+    saveToFile(originalFile, "../Decompressed/"+p1.stem().string()+".txt");
+    std::cout<<"File decompressed successfully\n";
   }
 }
