@@ -9,10 +9,12 @@
 #include "../HeaderFiles/Decoder.h"
 
 int main() {
+  std::cout<<"Enter file path:";
   Reader reader;
   std::string fileName;
   std::getline(std::cin,fileName);
   std::filesystem::path p1=fileName;
+  std::cout<<std::endl;
   if (p1.extension()==".txt"){
     if (reader.readFile(fileName)=="Error") {
       std::cout<<"Error\n";
