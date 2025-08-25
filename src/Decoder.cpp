@@ -28,5 +28,4 @@ void saveToFile(const std::string &data, const std::string &filename) {
   }
   outFile.write(data.data(),data.size());
   outFile.close();
-
 }
