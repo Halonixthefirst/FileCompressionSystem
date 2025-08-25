@@ -8,7 +8,7 @@
 #include "../HeaderFiles/Encoder.h"
 #include "../HeaderFiles/Decoder.h"
 
-int main() {
+int main(){
   std::cout<<"Enter file path:";
   Reader reader;
   std::string fileName;
